@@ -1,52 +1,83 @@
-<?php
-include("../menu.php");
 
-$id = $_GET['id'];
+<!DOCTYPE html>
+<html lang="pt-br">
 
-$sql = "Select * from funcionario where id = $id";
-require_once("../conexao.php");
-$result = mysqli_query($conexao,$sql);
-$funcionario = mysqli_fetch_assoc($result);
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMPRESA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 
-<div class="container">
-<h1>Editar o Funcionário</h1>
+<body>
 
-<form action="atualizar.php" method="post">
-    <input type="hidden" name="id" value="<?php echo $funcionario['id']; ?>">
+    <?php
+        include("../menu.php");
 
-    <p>
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" required value="<?php echo $funcionario['nome']; ?>">
-    </p>
+        $id = $_GET['id'];
 
-    <p>
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" required value="<?php echo $funcionario['email']; ?>">
-    </p>
+        $sql = "SELECT * FROM funcionario WHERE id = $id";
 
-    <p>
-        <label for="cargo">Cargo:</label>
-        <input type="text" name="cargo" required value="<?php echo $funcionario['cargo']; ?>">
-    </p>
+        require_once("../conexao.php");
 
-    <p>
-        <label for="salario">Salário base:</label>
-        <input type="text" name="salario" step="0.01" required value="<?php echo $funcionario['salario']; ?>">
-    </p>
+        $result = mysqli_query($conexao, $sql);
 
-    <p>
-        <label for="data">Data de admissão:</label>
-        <input type="date" name="admissao" required value="<?php echo $funcionario['data_admissao']; ?>">
-    </p>
+        $funcionario = mysqli_fetch_assoc($result);
+    ?>
 
-    <p>
-        <label for="ativo">Ativo</label>
-        <input type="checkbox" name="ativo" <?php if ($funcionario['ativo']==1) echo 'checked'; ?>>
-    </p>
+    <div class="container">
+        <h1>Edição de Funcionário</h1>
 
-    <p>
-        <input type="submit" value="Atualizar">
-    </p>
-</form>
-</div>
+        <form action="atualizar.php" method="post">
+
+            <p>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" required
+                    value="<?php echo $funcionario['nome']; ?>">
+            </p>
+
+            <p>
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" required
+                    value="<?php echo $funcionario['email']; ?>">
+            </p>
+
+            <p>
+                <label for="cargo">Cargo:</label>
+                <input type="text" name="cargo" required
+                    value="<?php echo $funcionario['cargo']; ?>">
+            </p>
+
+            <p>
+                <label for="salario">Salário base:</label>
+                <input type="number" name="salario" step="0.01" required
+                    value="<?php echo $funcionario['salario']; ?>">
+            </p>
+
+            <p>
+                <label for="admissao">Data de Admissão:</label>
+                <input type="date" name="admissao" required
+                    value="<?php echo $funcionario['data_admissao']; ?>">
+            </p>
+
+            <p>
+                <label for="ativo">Ativo:</label>
+                <input type="checkbox" name="ativo"
+                    <?php
+                        if ($funcionario['ativo'] == 1) {
+                            echo "checked";
+                        }
+                    ?>>
+            </p>
+
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+            <p>
+                <input type="submit" value="Atualizar">
+            </p>
+
+        </form>
+    </div>
+
+</body>
+</html>
