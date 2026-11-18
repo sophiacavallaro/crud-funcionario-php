@@ -6,17 +6,28 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="/index.php">Início</a>
+        <a class="nav-link" href="/crud-funcionario-php/index.php">Início</a>
       </li>     
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Funcionários
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/funcionario/adicionar.php">Adicionar</a>
-          <a class="dropdown-item" href="/funcionario/listar.php">Listar</a>          
+          <a class="dropdown-item" href="/crud-funcionario-php/funcionario/adicionar.php">Adicionar</a>
+          <a class="dropdown-item" href="/crud-funcionario-php/funcionario/listar.php">Listar</a>          
         </div>
       </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Departamento
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/crud-funcionario-php/departamento/adicionar.php">Adicionar</a>
+          <a class="dropdown-item" href="/crud-funcionario-php/departamento/listar.php">Listar</a>          
+        </div>
+      </li>
+
     </ul>
   </div>
 </nav>
